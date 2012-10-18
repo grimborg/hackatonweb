@@ -78,9 +78,21 @@
               },
               error: function(model, error) {
                 $("#error").fadeIn("slow");
+                var mailto_anchor = $("#mailto_anchor")[0];
+                var mailto_link = mailto_anchor.href;
+                var mailto_body = "&body=github user: " + github_username + " has the folowing idea: %0D%0D";
+                mailto_body = mailto_body + idea_text;
+                var mailto_link = mailto_link + mailto_body;
+                mailto_anchor.href = mailto_link;
               }});
         } catch (err) {
-          $(".error").show();
+          $("#error").fadeIn("slow");
+          var mailto_anchor = $("#mailto_anchor")[0];
+          var mailto_link = mailto_anchor.href;
+          var mailto_body = "&body=github user: " + github_username + " has the folowing idea: %0D%0D";
+          mailto_body = mailto_body + idea_text;
+          var mailto_link = mailto_link + mailto_body;
+          mailto_anchor.href = mailto_link;
         }
         return false;
 
@@ -120,7 +132,7 @@
                 <button id="send-idea" type="submit" class="span5 btn btn-primary">Join!</button>
                 <div id="error" class="span12">
                   <div class="alert alert-error">
-                    There was an error sending your idea :( Please <a href="mailto://oscar.vilaplana@paylogic.eu&subject=Hackathon">email it to us</a>.
+                    There was an error sending your idea :( Please <a id="mailto_anchor" href="mailto://oscar.vilaplana@paylogic.eu?subject=Hackaton">email it to us</a>.
                   </div>
                 </div>
                 <div id="success" class="span12">
@@ -234,9 +246,6 @@
 
     </div> <!-- /container -->
 
-    <!-- Le javascript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
     <script src="assets/js/jquery.jcountdown.min.js"></script>
     <script>
