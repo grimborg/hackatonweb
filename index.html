@@ -47,12 +47,15 @@
         <div class="row-fluid">
           <div class="span8">
             <h1 style="font-size:54px;">Pygrunn Winter Hackaton</h1>
+            <div id="days-left" class="progress">
+              <div class="bar" style="width: 0%;"></div>
+            </div>
             <h2 id="time" class="time"></h2>
             <p>Let's get together and build something!</p>
           </div>
           <div class="span4">
             <form class="form" action="mailto:oscar.vilaplana@paylogic.eu" enctype="text/plain">
-              <textarea rows="8" class="span12" placeholder="Write your idea here...                                                                                                                                                                       For example, I want to do a project with arduino that raise an alarm when somebody is farting. We know, this is not very original, but we are sure that you can improve it!"></textarea>
+              <textarea rows="9" class="span12" placeholder="Write your idea here...                                                                                                                                                                       For example, I want to do a project with arduino that raise an alarm when somebody is farting. We know, this is not very original, but we are sure that you can improve it!"></textarea>
             <div class="controls">
               <div class="span7"></div>
               <button type="submit" class="span5 btn btn-primary">Send idea!</button>
@@ -184,6 +187,14 @@ initialize();
         leadingZero: false,
         htmlTemplate: "%d <span class=\"cd-time\">days</span>, %h <span class=\"cd-time\">hours</span>, %i <span class=\"cd-time\">minutes</span> & %s <span class=\"cd-time\">seconds</span>"
         });
+
+
+        // This started on Oct 18th. 29 days left:
+        //        30 - 100
+        // days_left - x
+        var percent = (30 - $("#time").countdown("getSettings", "daysLeft")) * 100 / 30;
+        percent = Math.round(percent) + '%';
+        $("#days-left > .bar").css("width", percent);
       });
     </script>
   </body>
