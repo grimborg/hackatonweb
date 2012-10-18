@@ -25,6 +25,8 @@
         font-weight: normal;
       }
       #success, #error {
+        margin-top: -30px;
+        margin-left: 0px;
         display: none;
       }
       h1 a {
@@ -59,11 +61,11 @@
               {github_username: github_username, idea: idea_text, email: email},
               {
 		  success: function(object) {
-		      $("#send-idea").hide();
-		      $("#success").show();
+		      $("#send-idea").fadeOut("slow");
+		      $("#success").fadeIn("slow");
 		  },
 		  error: function(model, error) {
-		      $("#error").show();
+		      $("#error").fadeIn("slow");
 		  }});
       } catch (err) {
 	  $(".error").show();
