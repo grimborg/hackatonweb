@@ -8,7 +8,7 @@
     <meta name="author" content="">
 
     <!-- Le styles -->
-    <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
     <style type="text/css">
       body {
         padding-top: 20px;
@@ -19,7 +19,7 @@
         font-size: 1.2em;
       }
     </style>
-    <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="assets/css/bootstrap-responsive.min.css" rel="stylesheet">
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -38,33 +38,23 @@
     <div class="container">
 
       <!-- Main hero unit for a primary marketing message or call to action -->
-      <div class="row">
-        <div class="span8">
-          <div class="hero-unit">
+      <div class="hero-unit">
+        <div class="row-fluid">
+          <div class="span8">
             <h1>Pygrunn Winter Hackaton</h1>
             <h2 id="time" class="time"></h2>
             <p>Let's get together and build something.</p>
           </div>
-        </div>
-        <div class="span4">
-          <div class="hero-unit sender">
-            <style>
-              .form {
-                margin-top: -61px;
-                margin-left: -61px;
-              }
-              .form button {
-                margin-top: 10px;
-              }
-              .sender { height: 100px; }
-            </style>
+          <div class="span4">
             <form class="form">
-              <textarea rows="14" class="span4">Write here your idea...</textarea>
-              <div class="control-group">
-              <div class="controls">
-                <button type="submit" class="btn">Send idea!</button>
-              </div>
-              </div>
+              <textarea rows="8" class="span12">Write your idea here...
+
+For example, I want to do a project with arduino that raise an alarm when somebody is farting. We know, this is not very original, but we are sure that you can improve it!
+              </textarea>
+            <div class="controls">
+              <div class="span7"></div>
+              <button type="submit" class="span5 btn btn-primary">Send idea!</button>
+            </div>
             </form>
           </div>
         </div>
@@ -132,7 +122,8 @@
           date: "november 17, 2012 10:00",
           onComplete: function( event ) {
         },
-        leadingZero: true
+        leadingZero: false,
+        htmlTemplate: "%d <span class=\"cd-time\">days</span>, %h <span class=\"cd-time\">hours</span>, %i <span class=\"cd-time\">minutes</span> & %s <span class=\"cd-time\">seconds</span>"
         });
     </script>
   </body>
