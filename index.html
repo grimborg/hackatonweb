@@ -49,22 +49,27 @@
   <script type="text/javascript">
     Parse.initialize("HkTt2VpkYAVnVrfxwv450Av1QsHOp3O51lMOWFW5", "92GmZyLyPt3O1MG4bYa29cqqshuxCoyCVRVqtOs6");
     function send_idea() {
-      var github_username = $("#github_username")[0].value;
-      var idea_text = $("#idea")[0].value;
-      var email = $("#email")[0].value;
-      var Idea = Parse.Object.extend("Idea");
-      var idea = new Idea();
-      idea.save(
-        {github_username: github_username, idea: idea_text, email: email},
-        {
-        success: function(object) {
-          $("#send-idea").hide("slow");
-          $("#success").show("slow");
-        },
-        error: function(model, error) {
-          $("#error").show("slow");
-        }});
+      try {
+          var github_username = $("#github_username")[0].value;
+          var idea_text = $("#idea")[0].value;
+	  var email = $("#email")[0].value;
+	  var Idea = Parse.Object.extend("Idea");
+	  var idea = new Idea();
+	  idea.save(
+              {github_username: github_username, idea: idea_text, email: email},
+              {
+		  success: function(object) {
+		      $("#send-idea").hide();
+		      $("#success").show();
+		  },
+		  error: function(model, error) {
+		      $("#error").show();
+		  }});
+      } catch (err) {
+	  $(".error").show();
+      }
       return false;
+
     }
 </script>
   </head>
