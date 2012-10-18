@@ -104,7 +104,34 @@ For example, I want to do a project with arduino that raise an alarm when somebo
           <div class="span" style="width:45px;"></div>
         <div class="span10">
             <div class="nav-header"><h1>Location</h1></div>
-          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+<p>Nieuwe Boteringestraat 28, Groningen</p>
+<div id="map_canvas" style="z-index:1;position:relative;top:0px;left:0px;width:1024px;height:200px;"></div>
+
+<script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAA_VLwC3nphq0AMV4PO0UgXxQNvaA79ay2H0X8q5ypJvWp0l5BARTIMxVQvwEuTLTtt5fIN8aYBAUCeA&sensor=false"
+        type="text/javascript"></script>
+<script type="text/javascript">
+
+function initialize() {
+  if (GBrowserIsCompatible()) 
+  {
+    var map = new GMap2(document.getElementById("map_canvas"));
+    map.setCenter(new GLatLng(53.223443,6.560597), 15);
+    map.addControl(new GLargeMapControl3D());
+
+    var PaylogicIcon = new GIcon(G_DEFAULT_ICON);
+    PaylogicIcon.image = "assets/img/paylogic.png"; 
+    PaylogicIcon.iconSize = new GSize(151, 68);            
+    PaylogicIcon.iconAnchor = new GPoint(16, 68);
+ 
+    markerOptions = { icon:PaylogicIcon };
+  
+    var point = new GLatLng(53.222900,6.560200);
+    map.addOverlay(new GMarker(point, markerOptions));
+  } 
+}
+initialize();
+</script>
+
         </div>
       </div>
 
