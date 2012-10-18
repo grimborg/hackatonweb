@@ -52,9 +52,21 @@
       Parse.initialize("HkTt2VpkYAVnVrfxwv450Av1QsHOp3O51lMOWFW5", "92GmZyLyPt3O1MG4bYa29cqqshuxCoyCVRVqtOs6");
       function send_idea() {
         try {
+	  $(".control-label").hide();
+	  $(".control-group").removeClass("error");
           var github_username = $("#github_username")[0].value;
-          var idea_text = $("#idea")[0].value;
           var email = $("#email")[0].value;
+          var idea_text = $("#idea")[0].value;
+
+	  if (github_username === "") {
+              $("#github_username").parent().addClass("error").children().show();
+          }
+	  if (email === "") {
+	      $("#email").parent().addClass("error").children().show();
+	  }
+	  if (github_username === "" || email === "") {
+	      return false;
+          }
           var Idea = Parse.Object.extend("Idea");
           var idea = new Idea();
           idea.save(
@@ -94,8 +106,14 @@
 
 
             <form class="form" onsubmit="javascript:return send_idea(this)">
+<div class="control-group">
+<label class="control-label" style="display:none" for="github_username">Please fill in your github username.</label>
               <input class="span12" type="text" name="github_username" id="github_username" title="Your github profile" placeholder="Your github username"></input>
-              <input class="span12" type="text" name="email" id="email" title="Your email" placeholder="Your email"></input>
+</div>
+<div class="control-group">
+<label class="control-label" style="display:none" for="email">Please fill in your email.</label>
+              <input class="span12" type="email" name="email" id="email" title="Your email" placeholder="Your email"></input>
+</div>
               <textarea id="idea" name="idea" rows="8" class="span12" title="Your idea" placeholder="Write your idea here...                                                                                                                                                                       For example, I want to do a project with arduino that raise an alarm when somebody is farting. We know, this is not very original, but we are sure that you can improve it!"></textarea>
               <div class="controls">
                 <div class="span7"></div>
