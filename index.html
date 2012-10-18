@@ -49,14 +49,18 @@
   <script type="text/javascript">
     Parse.initialize("HkTt2VpkYAVnVrfxwv450Av1QsHOp3O51lMOWFW5", "92GmZyLyPt3O1MG4bYa29cqqshuxCoyCVRVqtOs6");
     function send_idea() {
+      $(".error").hide();
+      $(".success").hide();
       var github_username = $("#github_username")[0].value;
       var idea_text = $("#idea")[0].value;
+      var email = $("#email")[0].value;
       var Idea = Parse.Object.extend("Idea");
       var idea = new Idea();
       idea.save(
-        {github_username: github_username, idea: idea_text},
+        {github_username: github_username, idea: idea_text, email: email},
         {
         success: function(object) {
+          $("button").addClass("disabled").text("Thank you!");
           $(".success").show();
         },
         error: function(model, error) {
@@ -82,15 +86,17 @@
             <p>Let's get together and build something!</p>
           </div>
           <div class="span4">
-	    <div class="success">Thank you! We'll be in contact.</div>
-	    <div class="error">There was an error sending your idea :( Please <a href="mailto://oscar.vilaplana@paylogic.eu">email it to us</a>.</div>
             <form class="form" onsubmit="javascript:return send_idea(this)">
 	      <label for="github_username">Your github username:</label><input name="github_username" id="github_username"></input>
+	      <label for="email">Your email:</label><input name="email" id="email"></input>
 	      <label for="idea">Your idea:</label>
               <textarea id="idea" name="idea" rows="8" class="span12" placeholder="Write your idea here...                                                                                                                                                                       For example, I want to do a project with arduino that raise an alarm when somebody is farting. We know, this is not very original, but we are sure that you can improve it!"></textarea>
             <div class="controls">
               <div class="span7"></div>
-              <button type="submit" class="span5 btn btn-primary">Send idea!</button>
+              <button type="submit" class="span5 btn btn-primary">Join!</button>
+	    <div class="success">We received your idea and we'll be in contact.</div>
+	    <div class="error">There was an error sending your idea :( Please <a href="mailto://oscar.vilaplana@paylogic.eu&subject=Hackaton">email it to us</a>.</div>
+
             </div>
             </form>
           </div>
