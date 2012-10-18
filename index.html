@@ -20,6 +20,9 @@
         line-height: 1.5em;
         font-size: 1.2em;
       }
+      h1 a {
+        text-transform: capitalize;
+      }
     </style>
     <link href="assets/css/bootstrap-responsive.min.css" rel="stylesheet">
 
@@ -130,10 +133,9 @@ For example, I want to do a project with arduino that raise an alarm when somebo
        <div class="row">
           <div class="span" style="width:45px;"></div>
         <div class="span10">
-          <div class="nav-header"><h1>Location</h1></div>
+          <div class="nav-header"><h1>Location <small><a href="https://www.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=Paylogic+Nederland+B.V.,+Nieuwe+Boteringestraat+28-30,+Groningen,+Netherlands&amp;aq=0&amp;oq=paylo&amp;sll=37.0625,-95.677068&amp;sspn=40.324283,86.572266&amp;ie=UTF8&amp;hq=paylogic+nederland+bv&amp;hnear=Nieuwe+Boteringestraat+28,+9712+PM+Binnenstad,+Groningen,+The+Netherlands&amp;t=m&amp;ll=53.222902,6.560613&amp;spn=0.006295,0.006295" target="_blank">Nieuwe Boteringestraat 28, Groningen</a></small></h1></div>
 
-<p>Nieuwe Boteringestraat 28, Groningen</p>
-<div id="map_canvas" style="z-index:1;position:relative;top:0px;left:0px;width:1024px;height:400px;"></div>
+          <div id="map_canvas" style="z-index:1;position:relative;top:0px;left:0px;width:1024px;height:400px;"></div>
 
 <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=AIzaSyCffrqUK6zMnIGvM_FTz8yH3n2p4TRmQG0&sensor=false"
         type="text/javascript"></script>
