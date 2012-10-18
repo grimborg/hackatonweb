@@ -20,7 +20,6 @@
         line-height: 1.5em;
         font-size: 1.2em;
       }
-      li { list-style-type: square; }
     </style>
     <link href="assets/css/bootstrap-responsive.min.css" rel="stylesheet">
 
@@ -95,28 +94,48 @@ For example, I want to do a project with arduino that raise an alarm when somebo
               make it clearer if necessary.</li></ul> </div>
           <div class="span" style="width:30px;"></div>
         <div class="span5">
-            <div class="nav-header"><h1>Schedule</h1></div>
-            <h2>Saturday</h2>
-            <ul><li>All pitchers line up and get 5 minutes to explain their
-                idea.</li><li>First voting.</li><li>The pitchers of the 3 best
-                ideas get 15 minutes to explain their idea in more
-                detail.&nbsp;</li><li>Second voting.</li> <li>Everyone gets to
-                work. We can use scrum to track progress.</li><li>End of the
-                day: First demo.</li></ul>
-              <h2>Sunday</h2><ul><li>Everyone
-                continues work.</li><li>Afternoon: Final
-                demo.</li><li>We give some publicity to what
-                we built: Hackernews, Python mailing lists, Reddit. Heck, we could
-                even issue a press release.
-                <li>Beer!</li>
-            </li></ul>
-
+          <div class="nav-header"><h1>Schedule</h1></div>
+          <table class="table table-bordered">
+            <tr>
+              <th>
+                Saturday, November 17th
+              </th>
+            </tr>
+            <tr>
+              <td>
+                <ol>
+                  <li>All pitchers line up and get 5 minutes to explain their idea.</li>
+                  <li>First voting.</li>
+                  <li>The pitchers of the 3 best ideas get 15 minutes to explain their idea in more detail.&nbsp;</li>
+                  <li>Second voting.</li>
+                  <li>Everyone gets to work. We can use scrum to track progress.</li>
+                  <li>End of the day: First demo.</li>
+                </ol>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                Sunday, November 18th
+              </th>
+            </tr>
+            <tr>
+              <td>
+                <ol>
+                  <li>Everyone continues work.</li>
+                  <li>Afternoon: Final demo.</li>
+                  <li>We give some publicity to what we built: Hackernews, Python mailing lists, Reddit. Heck, we could even issue a press release.</li>
+                  <li>Beer!</li>
+                </ol>
+              </td>
+            </tr>
+          </table>
     </div>
        </div>
        <div class="row">
           <div class="span" style="width:45px;"></div>
         <div class="span10">
-            <div class="nav-header"><h1>Location</h1></div>
+          <div class="nav-header"><h1>Location</h1></div>
+
 <p>Nieuwe Boteringestraat 28, Groningen</p>
 <div id="map_canvas" style="z-index:1;position:relative;top:0px;left:0px;width:1024px;height:400px;"></div>
 
@@ -125,22 +144,22 @@ For example, I want to do a project with arduino that raise an alarm when somebo
 <script type="text/javascript">
 
 function initialize() {
-  if (GBrowserIsCompatible()) 
+  if (GBrowserIsCompatible())
   {
     var map = new GMap2(document.getElementById("map_canvas"));
     map.setCenter(new GLatLng(53.223443,6.560597), 15);
     map.addControl(new GLargeMapControl3D());
 
     var PaylogicIcon = new GIcon(G_DEFAULT_ICON);
-    PaylogicIcon.image = "assets/img/paylogic.png"; 
-    PaylogicIcon.iconSize = new GSize(151, 68);            
+    PaylogicIcon.image = "assets/img/paylogic.png";
+    PaylogicIcon.iconSize = new GSize(151, 68);
     PaylogicIcon.iconAnchor = new GPoint(16, 68);
- 
+
     markerOptions = { icon:PaylogicIcon };
-  
+
     var point = new GLatLng(53.222900,6.560200);
     map.addOverlay(new GMarker(point, markerOptions));
-  } 
+  }
 }
 initialize();
 </script>
